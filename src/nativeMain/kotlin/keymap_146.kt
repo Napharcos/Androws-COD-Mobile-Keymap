@@ -39,8 +39,6 @@ const val KEYMAP_CONTENT_146_175 = """
 <SwitchOperation Description="打开设置" EnableSwitch="SetUp" DisableSwitch="XBtn|MapOpenFlag|InSetUp|SkillX|ReturnSetUp" Point_X="0.765625" Point_Y="0.050000"/>
 </KeyMapping>
 <KeyMapping ItemName="%spaceName" Point_X="0.952344" Point_Y="0.705556" Description="跳跃" Remark="" MiniVisiable="true" MiniDisable="false" AsciiCode="%spaceCode">
-<SwitchOperation Description="喷气芯片喷气" EnableSwitch="Blow" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.952344" Point_Y="0.705556"/>
-<SwitchOperation Description="喷气芯片喷气中" EnableSwitch="Blow1" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.952344" Point_Y="0.705556"/>
 <SwitchOperation Description="跳跃" EnableSwitch="Jump" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.952344" Point_Y="0.705556" HideTips="1"/>
 <SwitchOperation Description="跳跃" EnableSwitch="Parachute1" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.952344" Point_Y="0.705556" HideTips="1"/>
 <SwitchOperation Description="上潜" EnableSwitch="SwimUp" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.952344" Point_Y="0.705556" HideTips="1"/>
@@ -48,6 +46,7 @@ const val KEYMAP_CONTENT_146_175 = """
 <SwitchOperation Description="战斗机的刹车" EnableSwitch="jet"  DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.756875" Point_Y="0.509722" />
 <SwitchOperation Description="刹车" EnableSwitch="Brake" DisableSwitch="XBtn|MapOpenFlag|InSetUp|ReturnSetUp" Point_X="0.838281" Point_Y="0.561111"/>
 <SwitchOperation Description="刹车" EnableSwitch="Brake2" DisableSwitch="XBtn|MapOpenFlag|InSetUp|ReturnSetUp" Point_X="0.838281" Point_Y="0.561111"/>
+<SwitchOperation Description="跳跃" EnableSwitch="SetUp" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.952344" Point_Y="0.705556" HideTips="1"/>
 </KeyMapping>
 <KeyMapping ItemName="%1Name" Point_X="0.427344" Point_Y="0.852778" Description="换1号武器" Remark="" MiniVisiable="false" MiniDisable="false" AsciiCode="%1Code">
 <SwitchOperation Description="换1号武器" EnableSwitch="Backpage" DisableSwitch="MapOpenFlag|ReturnSetUp|Whistle|FlyDown|Whistling|XBtn|CDX" Point_X="0.427344" Point_Y="0.852778"/>
@@ -91,7 +90,7 @@ const val KEYMAP_CONTENT_146_175 = """
 <SwitchOperation Description="坦克的干扰弹" EnableSwitch="Tank2" DisableSwitch="XBtn|MapOpenFlag|SkillX|ReturnSetUp" Point_X="0.905469" Point_Y="0.625000" TexturePosition="Tank2"/>
 <SwitchOperation Description="足球" EnableSwitch="football" DisableSwitch="XBtn|MapOpenFlag" Point_X="0.822500" Point_Y="0.630000"/>
 <SwitchOperation Description="" EnableSwitch="GetOutCar" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.770000" Point_Y="0.480000"/>
-<SwitchOperation Description="技能" EnableSwitch="Jump" DisableSwitch="XBtn|MapOpenFlag|GetOutCar|SkillX|ReturnSetUp" Point_X="0.943750" Point_Y="0.376389"/>
+<SwitchOperation Description="技能" EnableSwitch="SetUp" DisableSwitch="XBtn|MapOpenFlag|GetOutCar|SkillX|ReturnSetUp" Point_X="0.943750" Point_Y="0.376389"/>
 </KeyMapping>
 <KeyMapping ItemName="%fName" Point_X="0.607812" Point_Y="0.350000" Description="Scene: Drive, Open doors, Pick up, Parachute, Reviving" Remark="" MiniVisiable="true" MiniDisable="false" NoDelete="1" SpecialFunc="1002" OpGuidClass="0" AsciiCode="%fCode">
 <SwitchOperation Description="取消" EnableSwitch="YellowTriangle" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.591406" Point_Y="0.640278" TexturePosition="YellowTriangle"/>
@@ -186,6 +185,7 @@ const val KEYMAP_CONTENT_146_175 = """
 <KeyMapping ItemName="%ctrlName" Point_X="0.951562" Point_Y="0.825000" Description="趴下" Remark="" MiniVisiable="false" MiniDisable="false" AsciiCode="%ctrlCode">
 <SwitchOperation Description="趴下" EnableSwitch="Fall" DisableSwitch="InSetUp" Point_X="0.967057" Point_Y="0.940104"/>
 <SwitchOperation Description="取消趴下" EnableSwitch="CancelFall" DisableSwitch="InSetUp" Point_X="0.947761" Point_Y="0.847513"/>
+<SwitchOperation Description="取消趴下" EnableSwitch="FlyDown" DisableSwitch="InSetUp" Point_X="0.060937" Point_Y="0.519444"/>
 </KeyMapping>
 <KeyMapping ItemName="%zName" Point_X="0.767969" Point_Y="0.220833" Description="语音按住" Remark="" MiniVisiable="false" MiniDisable="false" AsciiCode="%zCode">
 <SwitchOperation Description="语音按住" EnableSwitch="Voice" DisableSwitch="XBtn|MapOpenFlag|SkillX|ReturnSetUp|CDX"/>
@@ -846,6 +846,9 @@ const val KEYMAP_CONTENT_176 = """
 <SwitchOperation Description="" EnableSwitch="SetUp" Point_X="0.551977" Point_Y="0.639323"/>
 </KeyMapping>
 <KeyMapping ItemName="%tName" Point_X="0.675765" Point_Y="0.666176" MiniVisiable="true" MiniDisable="true" AsciiCode="%tCode">
+<SwitchOperation Description="" EnableSwitch="SetUp"/>
+</KeyMapping>
+<KeyMapping ItemName="Caps" Point_X="0.505765" Point_Y="0.756176" MiniVisiable="true" MiniDisable="true" AsciiCode="20">
 <SwitchOperation Description="" EnableSwitch="SetUp"/>
 </KeyMapping>
 <KeyMapping ItemName="%fName" Point_X="0.718887" Point_Y="0.542969" Description="字母键划线" MiniVisiable="true" MiniDisable="false" AsciiCode="%fCode">

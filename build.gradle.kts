@@ -60,25 +60,34 @@ tasks.named("linkReleaseExecutableNative") {
     finalizedBy(regReleaseManifest)
 }
 
+interface InjectedExecOps {
+    @get:Inject
+    val execOps: ExecOperations
+}
+
 val regManifest by tasks.registering {
+    val injected = project.objects.newInstance<InjectedExecOps>()
+
     doLast {
         val manifestFile = file("src/nativeMain/resources/app.manifest")
         val exeFile = file("build/bin/native/debugExecutable/Androws_COD_Mobile_Keymap.exe")
-        val mt = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\mt.exe"
+        val mt = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.28000.0\\x64\\mt.exe"
 
-        project.exec {
-            commandLine(mt, "-manifest", manifestFile.absolutePath, "-outputresource:${exeFile.absolutePath};#1" )
+        injected.execOps.exec {
+            commandLine(mt, "-manifest", manifestFile.absolutePath, "-outputresource:${exeFile.absolutePath};#1")
         }
     }
 }
 
 val regReleaseManifest by tasks.registering {
+    val injected = project.objects.newInstance<InjectedExecOps>()
+
     doLast {
         val manifestFile = file("src/nativeMain/resources/app.manifest")
         val exeFile = file("build/bin/native/releaseExecutable/Androws_COD_Mobile_Keymap.exe")
-        val mt = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\mt.exe"
+        val mt = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.28000.0\\x64\\mt.exe"
 
-        project.exec {
+        injected.execOps.exec {
             commandLine(mt, "-manifest", manifestFile.absolutePath, "-outputresource:${exeFile.absolutePath};#1" )
         }
     }

@@ -46,6 +46,7 @@ const val KEYMAP_CONTENT_146_175 = """
 <SwitchOperation Description="战斗机的刹车" EnableSwitch="jet"  DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.756875" Point_Y="0.509722" />
 <SwitchOperation Description="刹车" EnableSwitch="Brake" DisableSwitch="XBtn|MapOpenFlag|InSetUp|ReturnSetUp" Point_X="0.838281" Point_Y="0.561111"/>
 <SwitchOperation Description="刹车" EnableSwitch="Brake2" DisableSwitch="XBtn|MapOpenFlag|InSetUp|ReturnSetUp" Point_X="0.838281" Point_Y="0.561111"/>
+<SwitchOperation Description="取消趴下" EnableSwitch="FlyDown" DisableSwitch="InSetUp" Point_X="0.060937" Point_Y="0.519444"/>
 <SwitchOperation Description="跳跃" EnableSwitch="SetUp" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.952344" Point_Y="0.705556" HideTips="1"/>
 </KeyMapping>
 <KeyMapping ItemName="%1Name" Point_X="0.427344" Point_Y="0.852778" Description="换1号武器" Remark="" MiniVisiable="false" MiniDisable="false" AsciiCode="%1Code">

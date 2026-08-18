@@ -1,8 +1,6 @@
 import kotlinx.cinterop.COpaquePointer
 import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.cinterop.toKString
 import platform.windows.FOLDERID_RoamingAppData
-import sqlite.sqlite3_get_config_value
 import sqlite.sqlite_close
 import sqlite.sqlite_exec
 import sqlite.sqlite_open

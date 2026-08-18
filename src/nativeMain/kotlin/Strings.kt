@@ -132,10 +132,10 @@ val en = mapOf(
     lock_mouse_key to "Lock mouse to screen",
     br_tab_key to "Backpack open/close",
     dmz_tab_key to "Backpack",
-    br_space_key to "Jump/Brake",
+    br_space_key to "Jump/Brake/Hawk X3 fire",
     dmz_space_key to "Jump",
     br_caps_key to "Execution/Snowboard",
-    br_b_key to "Revive",
+//    br_b_key to "Revive",
     br_c_key to "Crouch/Slide/Change position in car",
     dmz_c_key to "Crouch/Slide",
     br_e_key to "Skill/Aircraft jammer",
@@ -147,13 +147,13 @@ val en = mapOf(
     br_t_key to "Open-Close loot box/Jump snowboard",
     br_h_key to "Pick up item/Open-Close loot box/Enter car (first)",
     dmz_h_key to "Pick up item",
-    br_q_key to "Enter car",
+    br_q_key to "Snowboard/Execution",
     br_r_key to "Reload",
     br_v_key to "Desperado",
     dmz_v_key to "Zipline",
     dmz_t_key to "Rescue teammate",
     br_n_key to "1st/3rd person switch",
-    br_ctrl_key to "Prone",
+    br_ctrl_key to "Prone/Hawk X3 fire",
     dmz_ctrl_key to "Prone",
     br_alt_key to "Free view",
     br_3_key to "Grenade",
@@ -209,9 +209,9 @@ val hu = mapOf(
     gd_r_key to "Képesség 3",
     br_tab_key to "Táska kinyit/becsuk",
     dmz_tab_key to "Táska",
-    br_space_key to "Ugrás/Fék",
+    br_space_key to "Ugrás/Fék/Hawk X3 lövés",
     dmz_space_key to "Ugrás",
-    br_b_key to "Feléleszt",
+//    br_b_key to "Feléleszt",
     br_c_key to "Guggolás/Csúszás/Hely csere autóban",
     dmz_c_key to "Guggolás/Csúszás",
     br_e_key to "Képesség/Rakéta hárítás",
@@ -223,13 +223,13 @@ val hu = mapOf(
     br_t_key to "Láda nyitás-zárás/Ugrás hó deszka",
     br_h_key to "Elem felvétele/Láda nyitás-zárás",
     dmz_h_key to "Elem felvétele",
-    br_q_key to "Beszállás autóba",
+    br_q_key to "Hódeszka/Kivégzés",
     br_r_key to "Újratöltés",
     br_v_key to "Desperado",
     dmz_v_key to "Csúszka",
     dmz_t_key to "Csapattárs gyógyítása",
     br_n_key to "Belső/Külső nézet váltás",
-    br_ctrl_key to "Fekvés",
+    br_ctrl_key to "Fekvés/Hawk X3 lövés",
     dmz_ctrl_key to "Fekvés",
     br_alt_key to "Szabad nézet",
     br_3_key to "Gránát",
@@ -248,8 +248,7 @@ fun initLanguage() {
         else -> EN_LANG_RADIO_ID
     }
 
-    // Update the range to include all language radio buttons in your dialog
-    CheckRadioButton(hwndMain, 2001, 2009, langId)
+    CheckRadioButton(hwndMain, 2001, 2002, langId)
 }
 
 @OptIn(ExperimentalForeignApi::class)
@@ -279,7 +278,7 @@ fun getLocalLanguage(): String {
 }
 
 const val license =
-    "Copyright 2025 Napharcos. All rights reserved.\r\n\r\nPermission is granted to use this software for personal," +
+    "Copyright 2026 Napharcos. All rights reserved.\r\n\r\nPermission is granted to use this software for personal," +
             " non-commercial purposes only.\r\nAny form of copying, distribution, modification, reverse engineering," +
             " or creation of derivative works is strictly prohibited without the express written consent of the author, " +
             "unless otherwise explicitly stated.\r\n\r\nThe source code is made publicly available for transparency and " +

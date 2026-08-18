@@ -1,4 +1,4 @@
-Copyright 2025 Napharcos. All rights reserved.
+Copyright 2026 Napharcos. All rights reserved.
 
 Permission is granted to use this software for personal, non-commercial purposes only.
 Any form of copying, distribution, modification, reverse engineering, or creation of derivative works is strictly prohibited without the express written consent of the author, unless otherwise explicitly stated.

@@ -48,7 +48,7 @@ val brKeys = mutableListOf(
     KeyData(spaceKey, br_space_key, loadBrKey(spaceKey) ?: "SPACE", loadBrKeyCode(spaceKey) ?: 32, 3004),
     KeyData(key1, mp_1_key, loadBrKey(key1) ?: "1", loadBrKeyCode(key1) ?: 49, 3005),
     KeyData(key2, mp_2_key, loadBrKey(key2) ?: "2", loadBrKeyCode(key2) ?: 50, 3006),
-    KeyData(bKey, br_b_key, loadBrKey(bKey) ?: "B", loadBrKeyCode(bKey) ?: 66, 3007),
+//    KeyData(bKey, br_b_key, loadBrKey(bKey) ?: "B", loadBrKeyCode(bKey) ?: 66, 3007),
     KeyData(cKey, br_c_key, loadBrKey(cKey) ?: "C", loadBrKeyCode(cKey) ?: 67, 3008),
     KeyData(eKey, br_e_key, loadBrKey(eKey) ?: "E", loadBrKeyCode(eKey) ?: 69, 3009),
     KeyData(fKey, br_f_key, loadBrKey(fKey) ?: "F", loadBrKeyCode(fKey) ?: 70, 3010),

@@ -47,7 +47,7 @@ const val KEYMAP_CONTENT_146_175 = """
 <SwitchOperation Description="刹车" EnableSwitch="Brake" DisableSwitch="XBtn|MapOpenFlag|InSetUp|ReturnSetUp" Point_X="0.838281" Point_Y="0.561111"/>
 <SwitchOperation Description="刹车" EnableSwitch="Brake2" DisableSwitch="XBtn|MapOpenFlag|InSetUp|ReturnSetUp" Point_X="0.838281" Point_Y="0.561111"/>
 <SwitchOperation Description="取消趴下" EnableSwitch="FlyDown" DisableSwitch="InSetUp" Point_X="0.060937" Point_Y="0.519444"/>
-<SwitchOperation Description="跳跃" EnableSwitch="SetUp" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.952344" Point_Y="0.705556" HideTips="1"/>
+<SwitchOperation Description="Pumped" EnableSwitch="SetUp" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.952344" Point_Y="0.705556" HideTips="1"/>
 </KeyMapping>
 <KeyMapping ItemName="%1Name" Point_X="0.427344" Point_Y="0.852778" Description="换1号武器" Remark="" MiniVisiable="false" MiniDisable="false" AsciiCode="%1Code">
 <SwitchOperation Description="换1号武器" EnableSwitch="Backpage" DisableSwitch="MapOpenFlag|ReturnSetUp|Whistle|FlyDown|Whistling|XBtn|CDX" Point_X="0.427344" Point_Y="0.852778"/>
@@ -73,6 +73,7 @@ const val KEYMAP_CONTENT_146_175 = """
 <SwitchOperation Description="下潜中" EnableSwitch="SwimmingDown" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.854492" Point_Y="0.918403" HideTips="1"/>
 <SwitchOperation Description="换位置" EnableSwitch="GetOutCar" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.963281" Point_Y="0.933333"/>
 <SwitchOperation Description="取消趴下" EnableSwitch="CancelFall" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.854492" Point_Y="0.918403" HideTips="1"/>
+<SwitchOperation Description="JetBoost" EnableSwitch="SetUp" DisableSwitch="XBtn|MapOpenFlag|ReturnSetUp" Point_X="0.854492" Point_Y="0.918403" HideTips="1"/>
 </KeyMapping>
 <KeyMapping ItemName="%eName" Point_X="0.943750" Point_Y="0.376389" Description="技能" Remark="" MiniVisiable="false" MiniDisable="false" AsciiCode="%eCode">
 <SwitchOperation Description="蜜蜂第三视角" EnableSwitch="tinybee" DisableSwitch="MapOpenFlag|ReturnSetUp" Point_X="0.531250" Point_Y="0.764444"/>

@@ -7,100 +7,116 @@ import platform.windows.HWND
 import platform.windows.SetWindowTextW
 import platform.windows.TRUE
 
-const val BR = "br"
-const val MP = "mp"
-const val DMZ = "dmz"
-
 val mpKeys = mutableListOf(
-    KeyData(tabKey, mp_tab_key, loadMpKey(tabKey) ?: "TAB", loadMpKeyCode(tabKey) ?: 9, 3001),
-    KeyData(escKey, mp_esc_key, loadMpKey(escKey) ?: "ESC", loadMpKeyCode(escKey) ?: 27, 3002),
-    KeyData(spaceKey, mp_space_key, loadMpKey(spaceKey) ?: "SPACE", loadMpKeyCode(spaceKey) ?: 32, 3003),
-    KeyData(key1, mp_1_key, loadMpKey(key1) ?: "1", loadMpKeyCode(key1) ?: 49, 3004),
-    KeyData(key2, mp_2_key, loadMpKey(key2) ?: "2", loadMpKeyCode(key2) ?: 50, 3005),
-    KeyData(key3, mp_3_key, loadMpKey(key3) ?: "3", loadMpKeyCode(key3) ?: 51, 3006),
-    KeyData(key4, mp_4_key, loadMpKey(key4) ?: "4", loadMpKeyCode(key4) ?: 52, 3007),
-    KeyData(key5, mp_5_key, loadMpKey(key5) ?: "5", loadMpKeyCode(key5) ?: 53, 3008),
-    KeyData(key6, mp_6_key, loadMpKey(key6) ?: "6", loadMpKeyCode(key6) ?: 54, 3009),
-    KeyData(key7, mp_7_key, loadMpKey(key7) ?: "7", loadMpKeyCode(key7) ?: 55, 3010),
-    KeyData(tKey, mp_t_key, loadMpKey(tKey) ?: "T", loadMpKeyCode(tKey) ?: 84, 3011),
-    KeyData(cKey, mp_c_key, loadMpKey(cKey) ?: "C", loadMpKeyCode(cKey) ?: 67, 3012),
-    KeyData(eKey, mp_e_key, loadMpKey(eKey) ?: "E", loadMpKeyCode(eKey) ?: 69, 3013),
-    KeyData(fKey, mp_f_key, loadMpKey(fKey) ?: "F", loadMpKeyCode(fKey) ?: 70, 3014),
-    KeyData(qKey, mp_q_key, loadMpKey(qKey) ?: "Q", loadMpKeyCode(qKey) ?: 81, 3015),
-    KeyData(mKey, mp_m_key, loadMpKey(mKey) ?: "M", loadMpKeyCode(mKey) ?: 77, 3016),
-    KeyData(gKey, mp_g_key, loadMpKey(gKey) ?: "G", loadMpKeyCode(gKey) ?: 71, 3017),
-    KeyData(rKey, mp_r_key, loadMpKey(rKey) ?: "R", loadMpKeyCode(rKey) ?: 82, 3018),
-    KeyData(vKey, mp_v_key, loadMpKey(vKey) ?: "V", loadMpKeyCode(vKey) ?: 86, 3019),
-    KeyData(ctrlKey, mp_ctrl_key, loadMpKey(ctrlKey) ?: "CTRL", loadMpKeyCode(ctrlKey) ?: 17, 3020),
-    KeyData(zKey, mp_z_key, loadMpKey(zKey) ?: "Z", loadMpKeyCode(zKey) ?: 90, 3021),
-    KeyData(f4Key, mp_f4_key, loadMpKey(f4Key) ?: "F4", loadMpKeyCode(f4Key) ?: 115, 3022),
-    KeyData(oKey, mp_o_key, loadMpKey(oKey) ?: "Ó", loadMpKeyCode(oKey) ?: 187, 3023),
-    KeyData(iKey, mp_i_key, loadMpKey(iKey) ?: "Í", loadMpKeyCode(iKey) ?: 226, 3024),
-    KeyData(lKey, mp_l_key, loadMpKey(lKey) ?: "L", loadMpKeyCode(lKey) ?: 76, 3025),
-    KeyData(capsKey, mp_caps_key, loadMpKey(capsKey) ?: "CAPS", loadMpKeyCode(capsKey) ?: 20, 3026),
-    KeyData(lockMouseKey, lock_mouse_key, loadMpKey(lockMouseKey) ?: "X", loadMpKeyCode(lockMouseKey) ?: 88, 3027),
+    KeyData(hip_fire, 3000, replaceFire, loadMpKey(replaceFire)?.toBooleanStrictOrNull() ?: true),
+    KeyData(lockMouseKey, lock_mouse, loadMpKey(lockMouseKey) ?: "Ctrl", loadMpKeyCode(lockMouseKey) ?: 17, 3001),
+    KeyData(tabKey, performance_panel, loadMpKey(tabKey) ?: "Tab", loadMpKeyCode(tabKey) ?: 9, 3002),
+    KeyData(escKey, menu, loadMpKey(escKey) ?: "Esc", loadMpKeyCode(escKey) ?: 27,3003),
+    KeyData(spaceKey, jump, loadMpKey(spaceKey) ?: "Space", loadMpKeyCode(spaceKey) ?: 32, 3004),
+    KeyData(key1, key1, loadMpKey(key1) ?: "1", loadMpKeyCode(key1) ?: 49, 3005),
+    KeyData(key2, key2, loadMpKey(key2) ?: "2", loadMpKeyCode(key2) ?: 50, 3006),
+    KeyData(key3, key3, loadMpKey(key3) ?: "3", loadMpKeyCode(key3) ?: 51, 3007),
+    KeyData(key4, key4, loadMpKey(key4) ?: "4", loadMpKeyCode(key4) ?: 52, 3008),
+    KeyData(key5, key5, loadMpKey(key5) ?: "5", loadMpKeyCode(key5) ?: 53, 3009),
+    KeyData(key6, key6, loadMpKey(key6) ?: "6", loadMpKeyCode(key6) ?: 54, 3010),
+    KeyData(key7, key7, loadMpKey(key7) ?: "7", loadMpKeyCode(key7) ?: 55, 3011),
+    KeyData(bKey, keyb, loadMpKey(bKey) ?: "B", loadMpKeyCode(bKey) ?: 66, 3012),
+    KeyData(cKey, keyc, loadMpKey(cKey) ?: "C", loadMpKeyCode(cKey) ?: 67, 3013),
+    KeyData(eKey, keye, loadMpKey(eKey) ?: "E", loadMpKeyCode(eKey) ?: 69, 3014),
+    KeyData(fKey, keyf, loadMpKey(fKey) ?: "F", loadMpKeyCode(fKey) ?: 70, 3015),
+    KeyData(gKey, keyg, loadMpKey(gKey) ?: "G", loadMpKeyCode(gKey) ?: 71, 3016),
+    KeyData(hKey, keyh, loadMpKey(hKey) ?: "H", loadMpKeyCode(hKey) ?: 72, 3017),
+    KeyData(mKey, keym, loadMpKey(mKey) ?: "M", loadMpKeyCode(mKey) ?: 77, 3018),
+    KeyData(qKey, keyq, loadMpKey(qKey) ?: "Q", loadMpKeyCode(qKey) ?: 81, 3019),
+    KeyData(rKey, keyr, loadMpKey(rKey) ?: "R", loadMpKeyCode(rKey) ?: 82, 3020),
+    KeyData(vKey, keyv, loadMpKey(vKey) ?: "V", loadMpKeyCode(vKey) ?: 86, 3021),
+    KeyData(yKey, keyy, loadMpKey(yKey) ?: "Z", loadMpKeyCode(yKey) ?: 90, 3022),
+    KeyData(zKey, keyz, loadMpKey(zKey) ?: "Y", loadMpKeyCode(zKey) ?: 89, 3023),
+    KeyData(f4Key, keyf4, loadMpKey(f4Key) ?: "F4", loadMpKeyCode(f4Key) ?: 115, 3024),
+    KeyData(oKey, keyo, loadMpKey(oKey) ?: "=", loadMpKeyCode(oKey) ?: 187, 3025),
+    KeyData(xKey, keyx, loadMpKey(xKey) ?: "X", loadMpKeyCode(xKey) ?: 88, 3026, true, loadWheel(MP, xKey), WheelUiData(3027, 3028)),
+    KeyData(tKey, keyt, loadMpKey(tKey) ?: "T", loadMpKeyCode(tKey) ?: 84, 3029),
+    KeyData(f2Key, br_keyf2, loadMpKey(f2Key) ?: "F2", loadMpKeyCode(f2Key) ?: 113, 3030),
+    KeyData(f3Key, br_keyf3, loadMpKey(f3Key) ?: "F3", loadMpKeyCode(f3Key) ?: 114, 3031)
 )
 
 val brKeys = mutableListOf(
-    KeyData(tabKey, br_tab_key, loadBrKey(tabKey) ?: "TAB", loadBrKeyCode(tabKey) ?: 9, 3001),
-    KeyData(capsKey, mp_caps_key, loadBrKey(capsKey) ?: "CAPS", loadBrKeyCode(capsKey) ?: 20, 3002),
-    KeyData(escKey, mp_esc_key, loadBrKey(escKey) ?: "ESC", loadBrKeyCode(escKey) ?: 27, 3003),
-    KeyData(spaceKey, br_space_key, loadBrKey(spaceKey) ?: "SPACE", loadBrKeyCode(spaceKey) ?: 32, 3004),
-    KeyData(key1, mp_1_key, loadBrKey(key1) ?: "1", loadBrKeyCode(key1) ?: 49, 3005),
-    KeyData(key2, mp_2_key, loadBrKey(key2) ?: "2", loadBrKeyCode(key2) ?: 50, 3006),
-//    KeyData(bKey, br_b_key, loadBrKey(bKey) ?: "B", loadBrKeyCode(bKey) ?: 66, 3007),
-    KeyData(cKey, br_c_key, loadBrKey(cKey) ?: "C", loadBrKeyCode(cKey) ?: 67, 3008),
-    KeyData(eKey, br_e_key, loadBrKey(eKey) ?: "E", loadBrKeyCode(eKey) ?: 69, 3009),
-    KeyData(fKey, br_f_key, loadBrKey(fKey) ?: "F", loadBrKeyCode(fKey) ?: 70, 3010),
-    KeyData(tKey, br_t_key, loadBrKey(tKey) ?: "T", loadBrKeyCode(tKey) ?: 84, 3011),
-    KeyData(gKey, br_g_key, loadBrKey(gKey) ?: "G", loadBrKeyCode(gKey) ?: 71, 3012),
-    KeyData(hKey, br_h_key, loadBrKey(hKey) ?: "H", loadBrKeyCode(hKey) ?: 72, 3013),
-    KeyData(mKey, mp_m_key, loadBrKey(mKey) ?: "M", loadBrKeyCode(mKey) ?: 77, 3014),
-    KeyData(qKey, br_q_key, loadBrKey(qKey) ?: "Q", loadBrKeyCode(qKey) ?: 81, 3015),
-    KeyData(rKey, br_r_key, loadBrKey(rKey) ?: "R", loadBrKeyCode(rKey) ?: 82, 3016),
-    KeyData(vKey, br_v_key, loadBrKey(vKey) ?: "V", loadBrKeyCode(vKey) ?: 86, 3017),
-    KeyData(ctrlKey, br_ctrl_key, loadBrKey(ctrlKey) ?: "CTRL", loadBrKeyCode(ctrlKey) ?: 17, 3018),
-    KeyData(zKey, mp_z_key, loadBrKey(zKey) ?: "Z", loadBrKeyCode(zKey) ?: 90, 3019),
-    KeyData(f4Key, mp_f4_key, loadBrKey(f4Key) ?: "F4", loadBrKeyCode(f4Key) ?: 115, 3020),
-    KeyData(oKey, br_o_key, loadBrKey(oKey) ?: "Ó", loadBrKeyCode(oKey) ?: 187, 3021),
-    KeyData(altKey, mp_f4_key, loadBrKey(altKey) ?: "ALT", loadBrKeyCode(altKey) ?: 18, 3022),
-    KeyData(iKey, mp_i_key, loadBrKey(iKey) ?: "Í", loadBrKeyCode(iKey) ?: 226, 3023),
-    KeyData(kKey, mp_l_key, loadBrKey(kKey) ?: "K", loadBrKeyCode(kKey) ?: 75, 3024),
-    KeyData(key3, br_3_key, loadBrKey(key3) ?: "3", loadBrKeyCode(key3) ?: 51, 3025),
-    KeyData(key4, br_4_key, loadBrKey(key4) ?: "4", loadBrKeyCode(key4) ?: 52, 3026),
-    KeyData(nKey, br_n_key, loadBrKey(nKey) ?: "N", loadBrKeyCode(nKey) ?: 78, 3027),
-    KeyData(lockMouseKey, lock_mouse_key, loadBrKey(lockMouseKey) ?: "X", loadBrKeyCode(lockMouseKey) ?: 88, 3028),
+    KeyData(hip_fire_br, 3000, replaceFire, loadBrKey(replaceFire)?.toBooleanStrictOrNull() ?: true),
+    KeyData(separate_armor, 3001, separateArmor, loadBrKey(separateArmor)?.toBooleanStrictOrNull() ?: true),
+    KeyData(separate_buy_station, 3002, separateBuyStation, loadBrKey(separateBuyStation)?.toBooleanStrictOrNull() ?: false),
+    KeyData(tabKey, br_tabkey, loadBrKey(tabKey) ?: "Tab", loadBrKeyCode(tabKey) ?: 9, 3003),
+    KeyData(shiftKey, br_shiftkey, loadBrKey(shiftKey) ?: "Shift", loadBrKeyCode(shiftKey) ?: 16, 3004),
+    KeyData(escKey, br_esckey, loadBrKey(escKey) ?: "Escape", loadBrKeyCode(escKey) ?: 27, 3005),
+    KeyData(spaceKey, br_spacekey, loadBrKey(spaceKey) ?: "Space", loadBrKeyCode(spaceKey) ?: 32, 3006),
+    KeyData(key1, br_key1, loadBrKey(key1) ?: "1", loadBrKeyCode(key1) ?: 49, 3007),
+    KeyData(key2, br_key2, loadBrKey(key2) ?: "2", loadBrKeyCode(key2) ?: 50, 3008),
+    KeyData(bKey, br_keyb, loadBrKey(bKey) ?: "B", loadBrKeyCode(bKey) ?: 66, 3009),
+    KeyData(cKey, br_keyc, loadBrKey(cKey) ?: "C", loadBrKeyCode(cKey) ?: 67, 3010),
+    KeyData(eKey, br_keye, loadBrKey(eKey) ?: "E", loadBrKeyCode(eKey) ?: 69, 3011),
+    KeyData(fKey, br_keyf, loadBrKey(fKey) ?: "F", loadBrKeyCode(fKey) ?: 70, 3012),
+    KeyData(hKey, br_keyh, loadBrKey(hKey) ?: "H", loadBrKeyCode(hKey) ?: 72, 3013),
+    KeyData(mKey, br_keym, loadBrKey(mKey) ?: "M", loadBrKeyCode(mKey) ?: 77, 3014),
+    KeyData(qKey, br_keyq, loadBrKey(qKey) ?: "Q", loadBrKeyCode(qKey) ?: 81, 3015),
+    KeyData(rKey, br_keyr, loadBrKey(rKey) ?: "R", loadBrKeyCode(rKey) ?: 82, 3016),
+    KeyData(vKey, br_keyv, loadBrKey(vKey) ?: "V", loadBrKeyCode(vKey) ?: 86, 3017),
+    KeyData(yKey, br_keyy, loadBrKey(yKey) ?: "Z", loadBrKeyCode(yKey) ?: 90, 3018),
+    KeyData(zKey, br_keyz,  loadBrKey(zKey) ?: "Y", loadBrKeyCode(zKey) ?: 89, 3019),
+    KeyData(f4Key, br_keyf4, loadBrKey(f4Key) ?: "F4", loadBrKeyCode(f4Key) ?: 115, 3020),
+    KeyData(oKey, br_keyo, loadBrKey(oKey) ?: "=", loadBrKeyCode(oKey) ?: 187, 3021),
+    KeyData(lockMouseKey, br_lock_mouse, loadBrKey(lockMouseKey) ?: "Control", loadBrKeyCode(lockMouseKey) ?: 17, 3022),
+    KeyData(altKey, br_alt_key, loadBrKey(altKey) ?: "Alt", loadBrKeyCode(altKey) ?: 18, 3023),
+    KeyData(xKey, br_keyx, loadBrKey(xKey) ?: "X", loadBrKeyCode(xKey) ?: 88, 3024, true, loadWheel(BR, xKey), WheelUiData(3025, 3026)),
+    KeyData(tKey, br_keyt, loadBrKey(tKey) ?: "T", loadBrKeyCode(tKey) ?: 84, 3027),
+    KeyData(key5, br_key5, loadBrKey(key5) ?: "5", loadBrKeyCode(key5) ?: 53, 3028),
+    KeyData(key6, br_key6, loadBrKey(key6) ?: "6", loadBrKeyCode(key6) ?: 54, 3029),
+    KeyData(key7, br_key7, loadBrKey(key7) ?: "7", loadBrKeyCode(key7) ?: 55, 3030),
+    KeyData(key8, br_key8, loadBrKey(key8) ?: "8", loadBrKeyCode(key8) ?: 56, 3031),
+    KeyData(gKey, br_keyg, loadBrKey(gKey) ?: "G", loadBrKeyCode(gKey) ?: 71, 3032),
+    KeyData(capsKey, br_keycaps, loadBrKey(capsKey) ?: "Caps", loadBrKeyCode(capsKey) ?: 20, 3033),
+    KeyData(key3, br_key3, loadBrKey(key3) ?: "3", loadBrKeyCode(key3) ?: 51, 3034),
+    KeyData(f2Key, br_keyf2, loadBrKey(f2Key) ?: "F2", loadBrKeyCode(f2Key) ?: 113, 3035),
+    KeyData(f3Key, br_keyf3, loadBrKey(f3Key) ?: "F3", loadBrKeyCode(f3Key) ?: 114, 3036),
+    KeyData(key4, br_key4, loadBrKey(key4) ?: "4", loadBrKeyCode(key4) ?: 52, 3037),
+    KeyData(nKey, br_keyn, loadBrKey(nKey) ?: "N", loadBrKeyCode(nKey) ?: 78, 3038)
 )
 
 val dmzKeys = mutableListOf(
-    KeyData(tabKey, dmz_tab_key, loadDmzKey(tabKey) ?: "TAB", loadDmzKeyCode(tabKey) ?: 9, 3001),
-    KeyData(ctrlKey, dmz_ctrl_key, loadDmzKey(ctrlKey) ?: "CTRL", loadDmzKeyCode(ctrlKey) ?: 17, 3002),
-    KeyData(spaceKey, dmz_space_key, loadDmzKey(spaceKey) ?: "SPACE", loadDmzKeyCode(spaceKey) ?: 32, 3003),
-    KeyData(key1, mp_1_key, loadDmzKey(key1) ?: "1", loadDmzKeyCode(key1) ?: 49, 3004),
-    KeyData(key2, mp_2_key, loadDmzKey(key2) ?: "2", loadDmzKeyCode(key2) ?: 50, 3005),
-    KeyData(key4, br_4_key, loadDmzKey(key4) ?: "4", loadDmzKeyCode(key4) ?: 52, 3006),
-    KeyData(cKey, dmz_c_key, loadDmzKey(cKey) ?: "C", loadDmzKeyCode(cKey) ?: 67, 3007),
-    KeyData(eKey, dmz_e_key, loadDmzKey(eKey) ?: "E", loadDmzKeyCode(eKey) ?: 69, 3008),
-    KeyData(fKey, dmz_f_key, loadDmzKey(fKey) ?: "F", loadDmzKeyCode(fKey) ?: 70, 3009),
-    KeyData(gKey, dmz_g_key, loadDmzKey(gKey) ?: "G", loadDmzKeyCode(gKey) ?: 71, 3010),
-    KeyData(qKey, dmz_h_key, loadBrKey(qKey) ?: "Q", loadBrKeyCode(qKey) ?: 81, 3011),
-    KeyData(escKey, mp_esc_key, loadDmzKey(escKey) ?: "ESC", loadDmzKeyCode(escKey) ?: 27, 3012),
-    KeyData(mKey, mp_m_key, loadDmzKey(mKey) ?: "M", loadDmzKeyCode(mKey) ?: 77, 3013),
-    KeyData(rKey, mp_r_key, loadDmzKey(rKey) ?: "R", loadDmzKeyCode(rKey) ?: 82, 3014),
-    KeyData(f4Key, mp_f4_key, loadDmzKey(f4Key) ?: "F4", loadDmzKeyCode(f4Key) ?: 115, 3015),
-    KeyData(oKey, br_o_key, loadDmzKey(oKey) ?: "O", loadDmzKeyCode(oKey) ?: 187, 3016),
-    KeyData(iKey, mp_i_key, loadDmzKey(iKey) ?: "Í", loadDmzKeyCode(iKey) ?: 226, 3017),
-    KeyData(key3, br_3_key, loadDmzKey(key3) ?: "3", loadDmzKeyCode(key3) ?: 51, 3018),
-    KeyData(vKey, dmz_v_key, loadDmzKey(vKey) ?: "V", loadDmzKeyCode(vKey) ?: 86, 3019),
-    KeyData(tKey, dmz_t_key, loadDmzKey(tKey) ?: "T", loadDmzKeyCode(tKey) ?: 84, 3020),
-    KeyData(lockMouseKey, lock_mouse_key, loadBrKey(lockMouseKey) ?: "X", loadBrKeyCode(lockMouseKey) ?: 88, 3021)
+    KeyData(separate_buy_station, 3000, separateBuyStation, loadDmzKey(separateBuyStation)?.toBooleanStrictOrNull() ?: true),
+    KeyData(tabKey, dmz_tabkey, loadDmzKey(tabKey) ?: "TAB", loadDmzKeyCode(tabKey) ?: 9, 3001),
+    KeyData(shiftKey, dmz_shiftkey, loadDmzKey(shiftKey) ?: "Shift", loadDmzKeyCode(shiftKey) ?: 16, 3002),
+    KeyData(yKey, dmz_keyy, loadDmzKey(yKey) ?: "Z", loadDmzKeyCode(yKey) ?: 90, 3003),
+    KeyData(spaceKey, dmz_spacekey, loadDmzKey(spaceKey) ?: "SPACE", loadDmzKeyCode(spaceKey) ?: 32, 3004),
+    KeyData(key1, dmz_key1, loadDmzKey(key1) ?: "1", loadDmzKeyCode(key1) ?: 49, 3005),
+    KeyData(key2, dmz_key2, loadDmzKey(key2) ?: "2", loadDmzKeyCode(key2) ?: 50, 3006),
+    KeyData(bKey, dmz_keyb, loadDmzKey(bKey) ?: "B", loadDmzKeyCode(bKey) ?: 66, 3007),
+    KeyData(cKey, dmz_keyc, loadDmzKey(cKey) ?: "C", loadDmzKeyCode(cKey) ?: 67, 3008),
+    KeyData(eKey, dmz_keye, loadDmzKey(eKey) ?: "E", loadDmzKeyCode(eKey) ?: 69, 3009),
+    KeyData(fKey, dmz_keyf, loadDmzKey(fKey) ?: "F", loadDmzKeyCode(fKey) ?: 70, 3010),
+    KeyData(hKey, dmz_keyh, loadDmzKey(hKey) ?: "H", loadDmzKeyCode(hKey) ?: 72, 3011, true, loadWheel(DMZ, hKey), WheelUiData(3012, 3013)),
+    KeyData(jKey, dmz_keyj, loadDmzKey(jKey) ?: "J", loadDmzKeyCode(jKey) ?: 74, 3014),
+    KeyData(gKey, dmz_keyg, loadDmzKey(gKey) ?: "G", loadDmzKeyCode(gKey) ?: 71, 3015),
+    KeyData(qKey, dmz_keyq, loadDmzKey(qKey) ?: "Q", loadDmzKeyCode(qKey) ?: 81, 3016),
+    KeyData(escKey, dmz_esckey, loadDmzKey(escKey) ?: "ESC", loadDmzKeyCode(escKey) ?: 27, 3017),
+    KeyData(mKey, dmz_keym, loadDmzKey(mKey) ?: "M", loadDmzKeyCode(mKey) ?: 77, 3018),
+    KeyData(rKey, dmz_keyr, loadDmzKey(rKey) ?: "R", loadDmzKeyCode(rKey) ?: 82, 3019),
+    KeyData(f4Key, dmz_keyf4, loadDmzKey(f4Key) ?: "F4", loadDmzKeyCode(f4Key) ?: 115, 3020),
+    KeyData(oKey, dmz_keyo, loadDmzKey(oKey) ?: "O", loadDmzKeyCode(oKey) ?: 187, 3021),
+    KeyData(xKey, dmz_keyx, loadDmzKey(xKey) ?: "X", loadDmzKeyCode(xKey) ?: 88, 3022 , true, loadWheel(DMZ, xKey), WheelUiData(3023, 3024)),
+    KeyData(key3, dmz_key3, loadDmzKey(key3) ?: "3", loadDmzKeyCode(key3) ?: 51, 3025, true, loadWheel(DMZ, key3), WheelUiData(3026, 3027)),
+    KeyData(vKey, dmz_keyv, loadDmzKey(vKey) ?: "V", loadDmzKeyCode(vKey) ?: 86, 3028),
+    KeyData(tKey, dmz_keyt, loadDmzKey(tKey) ?: "T", loadDmzKeyCode(tKey) ?: 84, 3029),
+    KeyData(lockMouseKey, br_lock_mouse,loadDmzKey(lockMouseKey) ?: "CTRL", loadDmzKeyCode(lockMouseKey) ?: 17, 3030),
+    KeyData(zKey, dmz_keyz, loadDmzKey(zKey) ?: "Y", loadDmzKeyCode(zKey) ?: 89, 3031),
+    KeyData(nKey, dmz_keyn, loadDmzKey(nKey) ?: "N", loadDmzKeyCode(nKey) ?: 78, 3032)
 )
 
-val keyMaps = mutableMapOf(
-    4001 to KeyMaps("Multi Player", MP, mpKeys),
-    4002 to KeyMaps("Battle Royale", BR, brKeys),
-    4003 to KeyMaps("DMZ", DMZ, dmzKeys),
-)
+val keyMaps by lazy {
+    mutableMapOf(
+        4001 to KeyMaps("Multi Player", MP, mpKeys),
+        4002 to KeyMaps("Battle Royale", BR, brKeys),
+        4003 to KeyMaps("DMZ", DMZ, dmzKeys),
+    )
+}
 
 fun loadMpKeyCode(id: String) = reg?.let { getValue(it, MP + id + code) }?.toInt()
 
@@ -114,6 +130,8 @@ fun loadBrKey(id: String) = reg?.let { getValue(it, BR + id) }
 
 fun loadDmzKey(id: String) = reg?.let { getValue(it, DMZ + id) }
 
+fun loadWheel(mod: String, id: String) = reg?.let { getValue(it, "${mod}_${id}_wheel") }?.toBoolean() ?: true
+
 fun applyKeymap() {
     reinitMP(keyMaps[4001]?.keys ?: emptyList())
     reinitBR(keyMaps[4002]?.keys ?: emptyList())
@@ -123,7 +141,7 @@ fun applyKeymap() {
     ConsoleManager.startCODM()
 }
 
-fun updateKeyCode(id: String, keyCode: Int) {
+fun updateKeyCode(id: String?, keyCode: Int) {
     val keyMap = keyMaps[selectedKeymap]
     val mode = keyMap?.mode
     val element = keyMap?.keys?.firstOrNull { it.id == id }
@@ -135,13 +153,13 @@ fun updateKeyCode(id: String, keyCode: Int) {
     element?.let {
         it.currentCode = keyCode
 
-        reg?.let { setValue(it, mode + id + code, keyCode.toString()) }
+        reg?.let { r -> setValue(r, mode + id + code, keyCode.toString()) }
     }
 
     updateSubmitButtonState(nextButton)
 }
 
-fun updateKey(id: String, key: String) {
+fun updateKey(id: String?, key: String) {
     val keyMap = keyMaps[selectedKeymap]
     val mode = keyMap?.mode
     val element = keyMap?.keys?.firstOrNull { it.id == id }
@@ -149,7 +167,7 @@ fun updateKey(id: String, key: String) {
     element?.let {
         it.currentKey = key
 
-        reg?.let { setValue(it, mode + id, key) }
+        reg?.let { r -> setValue(r, mode + id, key) }
     }
 }
 
@@ -165,9 +183,9 @@ fun removeKey(keyCode: Int) {
         SetWindowTextW(it.hwnd, "")
 
 
-        reg?.let {
-            setValue(it, mode + filterElement.id + code, (-1).toString())
-            setValue(it, mode + filterElement.id, "")
+        reg?.let { r ->
+            setValue(r, mode + filterElement.id + code, (-1).toString())
+            setValue(r, mode + filterElement.id, "")
         }
     }
 }
@@ -176,8 +194,8 @@ fun updateSubmitButtonState(button: HWND?) {
     var enabled = true
 
     for ((_, v) in keyMaps) {
-        if (enabled == false) break
-        enabled = v.keys.all { it.currentCode >= 0 }
+        if (!enabled) break
+        enabled = v.keys.filter { !it.fakeKey }.all { it.currentCode!! >= 0 }
     }
 
     EnableWindow(button, if (enabled) TRUE else FALSE)
@@ -195,47 +213,34 @@ data class KeyMaps(
 data class KeyData(
     val id: String,
     val text: String,
-    var currentKey: String,
-    var currentCode: Int,
-    val buttonId: Int,
+    var currentKey: String? = null,
+    var currentCode: Int? = null,
+    val hwndId: Int,
+    val wheelAvailable: Boolean = false,
+    var applyWheel: Boolean = true,
+    val wheelUiData: WheelUiData? = null,
     var hwndText: HWND? = null,
-    var hwnd: HWND? = null
+    var hwnd: HWND? = null,
+    val fakeKey: Boolean = false,
+    var currentValue: Boolean? = null
+) {
+    constructor(
+        text: String,
+        hwndId: Int,
+        id: String,
+        currentValue: Boolean
+    ) : this(
+        id = id,
+        text = text,
+        fakeKey = true,
+        hwndId = hwndId,
+        currentValue = currentValue
+    )
+}
+
+data class WheelUiData(
+    val radio1Id: Int,
+    val radio2Id: Int,
+    var radio1Hwnd: HWND? = null,
+    var radio2Hwnd: HWND? = null
 )
-
-const val code = "code"
-const val name = "Name"
-const val key = "Key"
-const val CODE = "Code"
-
-const val tabKey = "tabKey"
-const val escKey = "escKey"
-const val spaceKey = "spaceKey"
-const val key1 = "1Key"
-const val key2 = "2Key"
-const val key3 = "3Key"
-const val key4 = "4Key"
-const val key5 = "5Key"
-const val key6 = "6Key"
-const val key7 = "7Key"
-const val tKey = "tKey"
-const val cKey = "cKey"
-const val eKey = "eKey"
-const val fKey = "fKey"
-const val qKey = "qKey"
-const val mKey = "mKey"
-const val hKey = "hKey"
-const val gKey = "gKey"
-const val rKey = "rKey"
-const val vKey = "vKey"
-const val ctrlKey = "ctrlKey"
-const val zKey = "zKey"
-const val f4Key = "f4Key"
-const val oKey = "oKey"
-const val iKey = "iKey"
-const val lKey = "lKey"
-const val kKey = "kKey"
-const val bKey = "bKey"
-const val nKey = "nKey"
-const val altKey = "altKey"
-const val lockMouseKey = "lockMouseKey"
-const val capsKey = "capsKey"

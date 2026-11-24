@@ -2,6 +2,7 @@ import kotlinx.cinterop.*
 import platform.posix.F_OK
 import platform.posix.access
 import platform.windows.*
+import kotlin.toString
 
 fun String.exists(): Boolean {
     return access(this, F_OK) == 0
@@ -12,7 +13,6 @@ fun String?.reduce(hwnd: HWND?): String? {
     return this?.let {
         val hdc = GetDC(hwnd)
         val words = it.split(Regex("\\s+"))
-        val spaceWidth: Int
         var lineCount = 1
         var lineWidth = 0
         var result = ""
@@ -20,7 +20,6 @@ fun String?.reduce(hwnd: HWND?): String? {
         memScoped {
             val size = alloc<SIZE>()
             GetTextExtentPoint32W(hdc, " ", 1, size.ptr)
-            spaceWidth = size.cx
 
             for (word in words) {
                 val wordWithSpace = "$word "
@@ -111,17 +110,7 @@ fun Int.keyCodeToName(): String? {
         VK_CAPITAL -> "CAPS"
         VK_DELETE -> "DELETE"
         VK_MENU -> "ALT"
+        VK_SHIFT -> "SHIFT"
         else -> null
     }
-}
-
-fun String.reMap(keys: List<KeyData>): String {
-    var newText = this
-
-    keys.forEach {
-        newText = newText.replace(('%' + it.id.substringBefore(key) + name), it.currentKey)
-        newText = newText.replace(('%' + it.id.substringBefore(key) + CODE), it.currentCode.toString())
-    }
-
-    return newText
 }

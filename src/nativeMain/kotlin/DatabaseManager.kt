@@ -26,7 +26,6 @@ object DatabaseManager {
         removeConfigTriggers()
         updateSMK()
         updateDefKeymap()
-        //updateDefConfig()
         addConfigTriggers()
         removeKeymapTriggers()
         clearKeymapConfigs()
@@ -41,45 +40,20 @@ object DatabaseManager {
         db?.let {
             sqlite_exec(it, OFFICIAL_CONFIG2)
             sqlite_exec(it, LAST_MODE)
-            sqlite_exec(it, KEYMAP_145)
-            sqlite_exec(it, KEYMAP_145_145)
-            sqlite_exec(it, KEYMAP_145_566)
-            sqlite_exec(it, KEYMAP_145_175)
-            sqlite_exec(it, KEYMAP_176)
-            sqlite_exec(it, KEYMAP_146)
-            sqlite_exec(it, KEYMAP_146_146)
-            sqlite_exec(it, KEYMAP_146_566)
-            sqlite_exec(it, KEYMAP_146_175)
+            sqlite_exec(it, KEYMAP_13)
+            sqlite_exec(it, KEYMAP_13_28)
+            sqlite_exec(it, KEYMAP_13_1795)
+            sqlite_exec(it, KEYMAP_13_1794)
+            sqlite_exec(it, KEYMAP_2220)
+            sqlite_exec(it, KEYMAP_2220_3609)
+            sqlite_exec(it, KEYMAP_2220_1795)
+            sqlite_exec(it, KEYMAP_2220_1794)
+            sqlite_exec(it, KEYMAP_2221)
+            sqlite_exec(it, KEYMAP_2221_3610)
+            sqlite_exec(it, KEYMAP_2221_1795)
+            sqlite_exec(it, KEYMAP_2221_1794)
         }
     }
-
-//    fun updateDefConfig() {
-//        if (db == null) db = sqlite_open(dbPath)
-//
-//        db?.let {
-//            val value =
-//                sqlite3_get_config_value(db, "androws.com.activision.callofduty.shooter.host_config") ?: return
-//
-//            val text = value.toKString()
-//            var newText = text
-//
-//            if (text.contains("\"default_frame_rate\":")) {
-//                val frameRate = text.substringAfter("\"default_frame_rate\":").substringBefore(',')
-//                newText = newText.replace("\"default_frame_rate\":$frameRate", "\"default_frame_rate\": 120")
-//            }
-//
-//            if (text.contains("\"maximum_frame_rate\":")) {
-//                val frameRate = text.substringAfter("\"maximum_frame_rate\":").substringBefore(',')
-//                newText = newText.replace("\"maximum_frame_rate\":$frameRate", "\"maximum_frame_rate\": 300")
-//            }
-//
-//            sqlite_exec(db, """
-//                INSERT INTO configs (key, value)
-//                VALUES ('androws.com.activision.callofduty.shooter.host_config', '$newText')
-//                ON CONFLICT(key) DO UPDATE SET value = excluded.value;
-//            """.trimIndent())
-//        }
-//    }
 
     fun clearKeymapConfigs() {
         if (db == null) db = sqlite_open(dbPath)

@@ -39,7 +39,6 @@ val container by lazy {
     )
 }
 
-
 val title by lazy {
     CreateWindowExW(
         dwExStyle = 0u,
@@ -50,23 +49,6 @@ val title by lazy {
         Y = margin,
         nWidth = mainWidth - (margin * 2),
         nHeight = titleHeight,
-        hWndParent = hwndMain,
-        hMenu = null,
-        hInstance = null,
-        lpParam = null
-    )
-}
-
-val text1 by lazy {
-    CreateWindowExW(
-        dwExStyle = 0u,
-        lpClassName = W_STATIC,
-        lpWindowName = strings[text_1],
-        dwStyle = WS_CHILD.toUInt() or WS_VISIBLE.toUInt(),
-        X = margin,
-        Y = titleHeight + margin,
-        nWidth = mainWidth - (margin * 2),
-        nHeight = textHeight * 2,
         hWndParent = hwndMain,
         hMenu = null,
         hInstance = null,

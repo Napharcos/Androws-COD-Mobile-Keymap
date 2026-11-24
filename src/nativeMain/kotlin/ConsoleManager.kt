@@ -8,7 +8,7 @@ object ConsoleManager {
     const val TH32CS_SNAPPROCESS: UInt = 0x00000002u
 
     fun startCODM() {
-        val path = getGameloopPath()
+        val path = getAndrowsPath()
         val exe = if (path != null) "$path\\Application\\AndrowsLauncher.exe" else "C:\\Program Files\\Tencent\\Androws\\Application\\AndrowsLauncher.exe"
         val args = "--from \"2\" --launch-pkg-name \"com.activision.callofduty.shooter\" --launch-proc-name \"Androws.exe\""
         val command = "cmd /c start \"\" \"$exe\" $args"
@@ -90,7 +90,7 @@ object ConsoleManager {
     }
 
     @OptIn(ExperimentalForeignApi::class)
-    private fun getGameloopPath(): String? = memScoped {
+    private fun getAndrowsPath(): String? = memScoped {
         val hKey = alloc<CPointerVar<HKEY__>>()
 
         val result = RegOpenKeyExW(

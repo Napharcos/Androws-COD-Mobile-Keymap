@@ -64,7 +64,7 @@ const val className = "Window"
 
 @OptIn(ExperimentalForeignApi::class)
 fun createRegistry(): HKEY? = memScoped {
-    val path = "Software\\Gameloop_COD_Mobile_Keymap"
+    val path = "Software\\Androws_COD_Mobile_Keymap"
     val hKeyVar = alloc<CPointerVar<HKEY__>>()
     val result = RegCreateKeyExW(
         hKey = HKEY_CURRENT_USER,

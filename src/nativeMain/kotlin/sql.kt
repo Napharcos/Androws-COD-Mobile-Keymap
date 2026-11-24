@@ -6,7 +6,7 @@ val UPDATE_SMK = """
 
 val UPDATE_DEFAULT_KEYMAP = """
     INSERT INTO configs (key, value, encrypt, json_data)
-    VALUES ('androws.com.activision.callofduty.shooter.default.key_mapping', '${DEFAULT_KEYMAP.trimIndent()}', 0, '') 
+    VALUES ('androws.com.activision.callofduty.shooter.default.key_mapping', '', 0, '') 
     ON CONFLICT(key) DO UPDATE SET value = excluded.value, encrypt = excluded.encrypt;
 """.trimIndent()
 
@@ -23,98 +23,132 @@ val OFFICIAL_CONFIG2 = """
 
 val LAST_MODE = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('lastmodeid.unlogin.com.activision.callofduty.shooter', '145', '', NULL, NULL, NULL) 
+    VALUES ('lastmodeid.unlogin.com.activision.callofduty.shooter', '13', '', NULL, NULL, NULL) 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
-val KEYMAP_145 = """
+// MP - Config
+val KEYMAP_13 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('keymap_mode.unlogin.com.activision.callofduty.shooter.145', '${KEYMAP_CONTENT_145.trimIndent()}', '', NULL, NULL, NULL) 
+    VALUES ('keymap_mode.unlogin.com.activision.callofduty.shooter.13', '${KEYMAP_CONTENT_13.trimIndent()}', '', NULL, NULL, NULL) 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
-val KEYMAP_145_145 = """
+//MP - Default
+val KEYMAP_13_28 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.145.145', '${KEYMAP_CONTENT_145_145.trimIndent()}', '15634', '', '', '') 
+    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.13.28', '${KEYMAP_CONTENT_13_28.trimIndent()}', '223', '', '', '') 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
-var KEYMAP_145_566 = """
+// MP - 16:10
+var KEYMAP_13_1795 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.145.566632', '${KEYMAP_CONTENT_145_566.trimIndent()}', '17179', '', '', '') 
+    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.13.1795311862400', '${KEYMAP_CONTENT_13_1795.trimIndent()}', '', '', '', '') 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
-//multi player
-var KEYMAP_145_175 = """
+// MP - 16:9
+var KEYMAP_13_1794 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.145.1752061764155', '${KEYMAP_CONTENT_145_175.trimIndent()}', '', '', '', '') 
+    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.13.1794448606514', '${KEYMAP_CONTENT_13_1794.trimIndent()}', '', '', '', '') 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
 fun reinitMP(keys: List<KeyData>) {
-    KEYMAP_145_175 = """
+    KEYMAP_13_1794 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.145.1752061764155', '${KEYMAP_CONTENT_145_175.trimIndent().reMap(keys)}', '', '', '', '') 
+    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.13.1794448606514', '${KEYMAP_CONTENT_13_1794.trimIndent().replaceKeys(MP, keys)}', '', '', '', '') 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
-    KEYMAP_145_566 = """
+    KEYMAP_13_1795 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.145.566632', '${KEYMAP_CONTENT_145_566.trimIndent().reMap(keys)}', '17179', '', '', '') 
+    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.13.1795311862400', '${KEYMAP_CONTENT_13_1795.trimIndent().replaceKeys(MP, keys)}', '', '', '', '') 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 }
 
-val KEYMAP_146 = """
+// BR - Config
+val KEYMAP_2220 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('keymap_mode.unlogin.com.activision.callofduty.shooter.146', '${KEYMAP_CONTENT_146.trimIndent()}', '', NULL, NULL, NULL) 
+    VALUES ('keymap_mode.unlogin.com.activision.callofduty.shooter.2220', '${KEYMAP_CONTENT_2220.trimIndent()}', '', NULL, NULL, NULL) 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
-val KEYMAP_146_146 = """
+// BR - Default
+val KEYMAP_2220_3609 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.146.146', '${KEYMAP_CONTENT_146_146.trimIndent()}', '12417', NULL, NULL, NULL) 
+    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.2220.3609', '${KEYMAP_CONTENT_2220_3609.trimIndent()}', '230', NULL, NULL, NULL) 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
-//battle royale
-var KEYMAP_146_175 = """
+// BR - 16:9
+var KEYMAP_2220_1794 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.146.1752061764139', '${KEYMAP_CONTENT_146_175.trimIndent()}', '', '', '', '') 
+    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.2220.1794450115798', '${KEYMAP_CONTENT_2220_1794.trimIndent()}', '', '', '', '') 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
-var KEYMAP_146_566 = """
+// BR - 16:10
+var KEYMAP_2220_1795 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.146.566635', '${KEYMAP_CONTENT_146_566.trimIndent()}', '17175', '', '', '') 
-    ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
-""".trimIndent()
-
-var KEYMAP_176 = """
-    INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.146.1765593240066', '${KEYMAP_CONTENT_176.trimIndent()}', '', '', '', '') 
+    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.2220.1795311842652', '${KEYMAP_CONTENT_2220_1795.trimIndent()}', '', '', '', '') 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
 fun reinitBR(keys: List<KeyData>) {
-    KEYMAP_146_175 = """
+    KEYMAP_2220_1794 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.146.1752061764139', '${KEYMAP_CONTENT_146_175.trimIndent().reMap(keys)}', '', '', '', '') 
+    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.2220.1794450115798', '${KEYMAP_CONTENT_2220_1794.trimIndent().replaceKeys(BR, keys)}', '', '', '', '') 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 
-    KEYMAP_146_566 = """
+    KEYMAP_2220_1795 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.146.566635', '${KEYMAP_CONTENT_146_566.trimIndent().reMap(keys)}', '17175', '', '', '') 
+    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.2220.1795311842652', '${KEYMAP_CONTENT_2220_1795.trimIndent().replaceKeys(BR, keys)}', '', '', '', '') 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 }
 
-fun reinitDMZ(keys: List<KeyData>) {
-    KEYMAP_176 = """
+// DMZ - Config
+val KEYMAP_2221 = """
     INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
-    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.146.1765593240066', '${KEYMAP_CONTENT_176.trimIndent().reMap(keys)}', '', '', '', '') 
+    VALUES ('keymap_mode.unlogin.com.activision.callofduty.shooter.2221', '${KEYMAP_CONTENT_2221.trimIndent()}', '', NULL, NULL, NULL) 
+    ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
+""".trimIndent()
+
+// BR - Default
+val KEYMAP_2221_3610 = """
+    INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
+    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.2221.3610', '${KEYMAP_CONTENT_2221_3610.trimIndent()}', '222', NULL, NULL, NULL) 
+    ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
+""".trimIndent()
+
+// BR - 16:9
+var KEYMAP_2221_1794 = """
+    INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
+    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.2221.1794492819158', '${KEYMAP_CONTENT_2221_1794.trimIndent()}', '', '', '', '') 
+    ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
+""".trimIndent()
+
+// BR - 16:10
+var KEYMAP_2221_1795 = """
+    INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
+    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.2221.1795311871905', '${KEYMAP_CONTENT_2221_1795.trimIndent()}', '', '', '', '') 
+    ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
+""".trimIndent()
+
+fun reinitDMZ(keys: List<KeyData>) {
+    KEYMAP_2221_1794 = """
+    INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
+    VALUES ('keymap_data.unlogin.com.activision.callofduty.shooter.2221.1794492819158', '${KEYMAP_CONTENT_2220_1794.trimIndent().replaceKeys(DMZ, keys)}', '', '', '', '') 
+    ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
+""".trimIndent()
+
+    KEYMAP_2221_1795 = """
+    INSERT INTO key_map_configs_cache_official (key, value0, value1, value2, value3, value4)
+    VALUES ('offcial_keymap_data2.com.activision.callofduty.shooter.2221.1795311871905', '${KEYMAP_CONTENT_2220_1795.trimIndent().replaceKeys(DMZ, keys)}', '', '', '', '') 
     ON CONFLICT(key) DO UPDATE SET value0 = excluded.value0;
 """.trimIndent()
 }
